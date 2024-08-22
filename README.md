@@ -1,1 +1,0 @@
-# udemy-the-complete-ruby-on-rails-course
