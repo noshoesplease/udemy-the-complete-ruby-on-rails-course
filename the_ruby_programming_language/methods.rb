@@ -1,4 +1,4 @@
-def title
+def render_title
   puts "Simple Calculator"
   20.times { print "-" }
   puts
@@ -13,7 +13,7 @@ def get_inputs
   [num1, num2]
 end
 
-def operations_menu
+def render_operations_menu
   puts "Choose an operation: "
   puts "1. Add"
   puts "2. Subtract"
@@ -66,7 +66,7 @@ def dispatch_operation(operation, num1, num2)
   end
 end
 
-def calculate(operation, num1, num2)
+def render_calculate(operation, num1, num2)
   begin
     dispatch_operation(operation, num1, num2)
   rescue ZeroDivisionError
@@ -74,12 +74,12 @@ def calculate(operation, num1, num2)
   end
 end
 
-title
+render_title
 
 num1, num2 = get_inputs
 
-operations_menu
+render_operations_menu
 
 operation = get_operation
 
-calculate(operation, num1, num2)
+render_calculate(operation, num1, num2)
