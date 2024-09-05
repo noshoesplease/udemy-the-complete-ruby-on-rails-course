@@ -3,4 +3,7 @@ class PagesController < ApplicationController
     # render plain: "Hello, Rails!"
     # render html: "Hello, Rails!"
   end
+
+  def about
+  end
 end
