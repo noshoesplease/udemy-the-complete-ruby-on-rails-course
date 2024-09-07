@@ -6,4 +6,10 @@ class ArticlesController < ApplicationController
     # debugger
     @article = Article.find(params[:id])
   end
+
+  def new
+  end
+
+  def create
+  end
 end
