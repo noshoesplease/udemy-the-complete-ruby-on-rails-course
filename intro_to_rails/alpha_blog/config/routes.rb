@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   get "about", to: "pages#about"
   # get "about" => "pages#about"
 
-  # resources :articles
-  # resources :articles, only: [:show, :index, :new, :create, :edit, :update, :destroy]
-  resources :articles, only: [ :show, :index, :new, :create, :edit, :update ]
+  # this is equivalent to the following - resources :articles
+  resources :articles, only: [ :show, :index, :new, :create, :edit, :update, :destroy ]
 end
