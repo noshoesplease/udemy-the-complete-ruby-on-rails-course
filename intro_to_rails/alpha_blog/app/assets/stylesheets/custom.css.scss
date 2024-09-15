@@ -1,0 +1,30 @@
+@import "bootstrap";
+
+.navbar {
+  background-color: black;
+  .nav-link {
+    color: white;
+  }
+  #logo {
+    color: white;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
+
+.hero {
+  background-image: asset-url("jumbo.avif");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
