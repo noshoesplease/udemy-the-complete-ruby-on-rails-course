@@ -1,7 +1,9 @@
-<h1>Create a New Article</h1>
+<div id='page-content'>
+    <h1 class='text-center mt-4'>Create a New Article</h1>
+    
+    <h2 class='text-center'>
+        <%= link_to 'Return to listing', articles_path, class: 'btn btn-primary' %>
+    </h2>
 
-<%= render 'form' %>
-
-<p>
-    <%= link_to 'Return to listing', articles_path %>
-</p>
+    <%= render 'form' %>
+</div>
