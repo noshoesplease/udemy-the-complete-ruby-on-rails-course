@@ -1,15 +1,7 @@
 
 <div class='container'>
-    <% if @article.errors.any? %>
-        <div class='row'>
-            <h2>The following errors prevented the article from being saved:</h2>
-            <ul>
-                <% @article.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                <% end %>
-            </ul>
-        </div>
-    <% end %>
+    <%= render 'shared/errors' %>
+
     <div class='row'>
         <%= form_with model: @article, local: true do |f| %>
             <div class="mb-3">
@@ -18,7 +10,7 @@
             </div>
             <div class="mb-3">
                 <%= f.label :description, class: 'form-label' %>
-                <%= f.text_area :description, class: 'form-control' %>
+                <%= f.text_area :description, class: 'form-control', style: 'height: 150px;' %>
             </div>
             <%= f.submit class: 'btn btn-primary' %>
         <% end %>
