@@ -1,7 +1,9 @@
-<h1>Edit Article</h1>
+<div class='py-3' id='page-content'>
+    <h1 class='text-center mt-4'>Edit Article</h1>
 
-<%= render 'form' %>
+    <h2 class='text-center'>
+        <%= link_to 'Return to listing', articles_path, class: 'btn btn-primary' %>
+    </h2>
 
-<p>
-    <%= link_to 'Return to listing', articles_path %>
-</p>
+    <%= render 'form' %>
+</div>

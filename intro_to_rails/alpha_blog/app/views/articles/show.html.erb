@@ -1,8 +1,26 @@
-<h1>Showing Article Details</h1>
+<div class='py-3' id='page-content'>
+    <h1 class='text-center'><%= @article.title %></h1>
+    <div class='row mb-4 justify-content-md-center'>
+        <div class='col-8 mt-4'>
+            <div class="shadow-lg card text-center">
+                <div class="card-header">By Devin</div>
+                <div class="card-body">
+                    <%= simple_format @article.description, class: 'card-text text-start' %>
+                    <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-outline-info' %>
+                    <%= link_to 'Delete', article_path(@article), class: 'btn btn-outline-danger', data: { "turbo-method": :delete , "turbo-confirm": "Are you sure?"} %>
+                </div>
+                <div class="card-footer text-muted">
+                    <small>
+                        Created <%= time_ago_in_words(@article.created_at) %> ago |
+                        edited <%= time_ago_in_words(@article.updated_at) %> ago
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<h2><%= @article.title %></h2>
-<p><%= @article.description %></p>
+    <h2 class='text-center'>
+        <%= link_to 'Return to listing', articles_path, class: 'btn btn-primary' %>
+    </h2>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Delete', article_path(@article), data: { "turbo-method": :delete , "turbo-confirm": "Are you sure?"} %> |
-<%= link_to 'Return to listing', articles_path %>
+</div>
