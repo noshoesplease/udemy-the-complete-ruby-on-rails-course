@@ -1,3 +1,15 @@
+=begin
+
+association types for ActiveRecord entities
+  belongs_to
+  has_one
+has_many
+has_many :through
+has_one :through
+has_and_belongs_to_many
+
+=end
+
 class Article < ApplicationRecord
   # article = Article.new
   # article.save // returns false and wont save
@@ -6,3 +18,8 @@ class Article < ApplicationRecord
   validates :title, presence: true, length: { minimum: 6, maximum: 100 }
   validates :description, presence: true, length: { minimum: 10, maximum: 300 }
 end
+
+
+__END__
+
+asdfsdafds
