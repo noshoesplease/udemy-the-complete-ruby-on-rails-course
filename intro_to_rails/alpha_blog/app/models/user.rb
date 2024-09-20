@@ -1,16 +1,18 @@
 =begin
 
 association types for ActiveRecord entities
-  belongs_to
-  has_one
-  has_many
-  has_many :through
-  has_one :through
-  has_and_belongs_to_many
+belongs_to
+has_one
+has_many
+has_many :through
+has_one :through
+has_and_belongs_to_many
 
 =end
 
 class User < ApplicationRecord
+  has_many :articles
+
   validates :username,
             presence: true,
             uniqueness: { case_sensitive: false },
