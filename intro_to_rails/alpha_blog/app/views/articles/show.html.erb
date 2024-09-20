@@ -3,7 +3,11 @@
     <div class='row mb-4 justify-content-md-center'>
         <div class='col-8 mt-4'>
             <div class="shadow-lg card text-center">
-                <div class="card-header">By Devin</div>
+                    <% if @article.user  %>
+                        <div class="card-header">
+                            by <%= @article.user.username %>
+                        </div>
+                    <% end  %>
                 <div class="card-body">
                     <%= simple_format @article.description, class: 'card-text text-start' %>
                     <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-outline-info' %>
