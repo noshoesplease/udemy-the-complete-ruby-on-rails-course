@@ -30,8 +30,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      # flash[:notice] = "User was updated successfully"
-      redirect_to user_path(@user)
+      flash[:notice] = "User was updated successfully"
+      redirect_to @user
     else
       render :edit, status: :unprocessable_entity
     end

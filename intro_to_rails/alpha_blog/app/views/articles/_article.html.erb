@@ -5,7 +5,7 @@
                 <div class="shadow-lg card text-center">
                     <% if article.user  %>
                         <div class="card-header">
-                            by <%= article.user.username %>
+                            by <%= link_to article.user.username, user_path(article.user) %>
                         </div>
                     <% end  %>
                     <div class="card-body">
