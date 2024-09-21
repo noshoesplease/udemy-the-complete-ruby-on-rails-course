@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  def show
+    @user = User.find(params[:id])
+    @articles = @user.articles
+  end
+
   def new
     # used in the template if there are errors
     @user = User.new
