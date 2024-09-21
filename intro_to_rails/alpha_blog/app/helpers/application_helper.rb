@@ -7,4 +7,14 @@ module ApplicationHelper
       style: "max-width: 400px; width: 100%; height: auto;"
     )
   end
+
+
+  def current_user
+    user_id = session[:user_id]
+    @current_user ||= User.find user_id if user_id
+  end
+
+  def logged_in?
+    !!current_user
+  end
 end
