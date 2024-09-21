@@ -1,0 +1,20 @@
+<div id='page-content'>
+    <h1 class='text-center mt-4'>Log in to AlphaBlog</h1>
+    
+    <div class='container'>
+        
+        <div class='row'>
+            <%= form_with scope: :session, url: login_path, local: true do |f| %>
+                <div class="mb-3">
+                    <%= f.label :email, class: 'form-label' %>
+                    <%= f.email_field :email, class: 'form-control', placeholder: "Enter your email address" %>
+                </div>
+                <div class="mb-3">
+                    <%= f.label :password, class: 'form-label' %>
+                    <%= f.password_field :password, class: 'form-control', placeholder: "Enter your password" %>
+                </div>
+                <%= f.submit "Log in" , class: 'btn btn-primary' %>
+            <% end %>
+        </div>
+    </div>
+</div>
