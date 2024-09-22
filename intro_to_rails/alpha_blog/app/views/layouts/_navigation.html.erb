@@ -36,6 +36,9 @@
                             <li>
                                 <%= link_to 'Edit your profile', edit_user_path(current_user), class: 'dropdown-item' %>
                             </li>
+                            <li>
+                                <%= link_to 'Delete your profile', user_path(current_user), class: 'text-danger dropdown-item', data: { "turbo-method": :delete, "turbo-confirm": "Are you sure?" } %>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item">
