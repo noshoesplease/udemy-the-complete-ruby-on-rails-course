@@ -1,6 +1,6 @@
 
 <div class='container'>
-    <%= render 'shared/errors' %>
+    <%= render 'shared/errors', obj: @article %>
 
     <div class='row'>
         <%= form_with model: @article, local: true do |f| %>
@@ -10,7 +10,7 @@
             </div>
             <div class="mb-3">
                 <%= f.label :description, class: 'form-label' %>
-                <%= f.text_area :description, class: 'form-control', style: 'height: 150px;' %>
+                <%= f.text_area :description, rows: 10, class: 'form-control', style: 'heidght: 150px;' %>
             </div>
             <%= f.submit class: 'btn btn-primary' %>
         <% end %>
