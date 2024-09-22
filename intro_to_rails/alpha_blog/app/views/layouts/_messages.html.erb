@@ -1,12 +1,12 @@
 
 <% if flash.any? %>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <div class='row'>
-            <% flash.each do |name, msg| %>
+    <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name == "notice" ? "success" : "danger" %> alert-dismissible fade show" role="alert">
+            <div class='row'>
                 <%= msg %>
-            <% end %>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         </div>
-    </div>
+    <% end %>
 <% end %>
 
