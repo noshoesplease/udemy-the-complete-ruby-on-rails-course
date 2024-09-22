@@ -1,0 +1,23 @@
+<div id='page-content'>
+    <h1 class='text-center mt-4'>Create a new cateogry</h1>
+    
+    
+    <div class='container'>
+        <%= render 'shared/errors', obj: @category %>
+        
+        <div class='row'>
+            <%= form_with model: @category, local: true do |f| %>
+                <div class="mb-3">
+                    <%= f.label :name, "Category name", class: 'form-label' %>
+                    <%= f.text_field :name , class: 'form-control', placeholder: "Enter a name" %>
+                </div>
+                <%= f.submit class: 'btn btn-primary' %>
+            <% end %>
+        </div>
+    </div>
+
+    <h2 class='text-center'>
+        <%= link_to 'Cancel and return to articles listing', articles_path, class: 'btn btn-primary' %>
+    </h2>
+
+</div>
