@@ -5,7 +5,7 @@
         <div class='row'>
             <%= gravitar_for @user%>
 
-            <% if logged_in? && @user == current_user %>
+            <% if logged_in? and @user == current_user %>
                 <div class='text-center mt-4'>
                     <%= link_to 'Edit your profile', edit_user_path(@user), class: 'btn btn-outline-info' %>
                 </div>
