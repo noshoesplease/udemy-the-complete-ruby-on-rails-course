@@ -1,6 +1,16 @@
 require "test_helper"
 
 class CreateCategoryTest < ActionDispatch::IntegrationTest
+  setup do
+    @admin_user = User.create(
+      username: "johndoe",
+      email: "johndoe@example.com",
+      password: "password",
+      admin: true
+    )
+    sign_in_as @admin_user
+  end
+
   category_name = "Sports"
 
   test "get new category form and create category" do
@@ -10,6 +20,7 @@ class CreateCategoryTest < ActionDispatch::IntegrationTest
       post categories_path, params: { category: { name: category_name } }
       assert_response :redirect
     end
+
     follow_redirect!
     assert_response :success
     assert_match category_name, response.body
