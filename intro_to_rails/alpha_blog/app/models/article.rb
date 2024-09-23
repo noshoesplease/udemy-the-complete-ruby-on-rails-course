@@ -12,6 +12,8 @@ has_and_belongs_to_many
 
 class Article < ApplicationRecord
   belongs_to :user
+  has_many :article_categories
+  has_many :categories, through: :article_categories
 
   # article = Article.new
   # article.save // returns false and wont save

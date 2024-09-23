@@ -12,6 +12,22 @@
                 <%= f.label :description, class: 'form-label' %>
                 <%= f.text_area :description, rows: 10, class: 'form-control', style: 'heidght: 150px;' %>
             </div>
+
+            <div class="mb-3">
+                <%= f.label :category, class: 'form-label' %>
+                <%= f.collection_select(
+                     :category_ids, 
+                     Category.all, 
+                     :id, 
+                     :name, 
+                     { 
+                        prompt: 'Select a category', 
+                        multiple: true,
+                        size: 5
+                    },
+                    class: 'custom-select form-control' 
+                ) %>
+            </div>
             <%= f.submit class: 'btn btn-primary' %>
         <% end %>
     </div>
