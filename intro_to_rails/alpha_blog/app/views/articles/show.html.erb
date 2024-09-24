@@ -3,11 +3,16 @@
     <div class='row mb-4 justify-content-md-center'>
         <div class='col-8 mt-4'>
             <div class="shadow-lg card text-center">
-                    <% if @article.user  %>
-                        <div class="card-header">
-                            by <%= @article.user.username %>
+                <div class="card-header">
+                    <% if @article.user %>
+                        by <%= @article.user.username %>
+                    <% end %>
+                    <% if @article.categories.any? %>
+                        <div class='mt-2'>
+                            <%= render @article.categories%>
                         </div>
-                    <% end  %>
+                    <% end %>
+                </div>
                 <div class="card-body">
                     <%= simple_format @article.description, class: 'card-text text-start' %>
                     <% if logged_in? and @article.user == current_user or current_user.admin? %>
