@@ -3,7 +3,7 @@
   <head>
     <title><%= content_for(:title) || "Message Me" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,9 +14,34 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="ui small inverted menu">
+      <div class="ui container">
+        <a class="item">
+          Chatroom
+        </a>
+        <a class="item">
+          Messages
+        </a>
+        <div class="right menu">
+          <div class="ui dropdown item">
+            Account <i class="dropdown icon"></i>
+            <div class="menu">
+              <a class="item">Log in</a>
+              <a class="item">Sign up</a>
+            </div>
+          </div>
+          <div class="item">
+              <div class="ui primary button">Log In</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui container">
+      <%= yield %>
+    </div>
   </body>
 </html>
