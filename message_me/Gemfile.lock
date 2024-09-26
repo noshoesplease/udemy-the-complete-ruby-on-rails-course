@@ -113,6 +113,7 @@ GEM
     ffi (1.17.0-x86_64-linux-musl)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    hirb (0.7.3)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
@@ -331,6 +332,7 @@ DEPENDENCIES
   brakeman
   capybara
   debug
+  hirb
   importmap-rails
   jbuilder
   puma (>= 5.0)
