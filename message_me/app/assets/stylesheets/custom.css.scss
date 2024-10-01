@@ -2,5 +2,8 @@
 
 .chatbox {
   height: 450px;
-  overflow-y: scroll;
+}
+
+#messages {
+  overflow-y: auto;
 }
