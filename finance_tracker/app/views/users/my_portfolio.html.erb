@@ -1,12 +1,17 @@
 <h1>My Portfolio</h1>
 
 <div class="search-area">
-    <h3>Search Stocks</h3>
-    <%= form_with(url: search_stock_path, method: :get) do %>
-        <%= text_field_tag :stock, params[:stock], placeholder: "Stock ticker symbol" %>
-        <%= csrf_meta_tags %>
-        <%= submit_tag "Search" %>
-    <% end %>
+  <h3>Search Stocks</h3>
+  <%= form_with url: search_stock_path, method: "get", data: { turbo_frame: "stock_results" } do %>
+    <%= text_field_tag :stock, params[:stock], placeholder: "Stock ticker symbol", autofocus: true, class: "form-control form-control-lg" %>
+    <%# <%= csrf_meta_tags %> 
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
 </div>
 
-<%= render 'users/result' %>
+<div id="stock-results">
+  <%= turbo_frame_tag "stock_results" do %>
+    <!-- Stock results will be rendered here -->
+    <%= render 'users/result' %>
+  <% end %>
+</div>
