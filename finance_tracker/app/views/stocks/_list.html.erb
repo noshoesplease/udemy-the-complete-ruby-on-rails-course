@@ -10,15 +10,10 @@
             <th scope="col">Actions</th>
           </tr>
         </thead>
-        <tbody>
-            <% @tracked_stocks.each do |stock| %>
-              <tr>
-                <th scope="row"><%= stock.ticker %></th>
-                <td><%= stock.name %></td>
-                <td><%= stock.last_price %></td>
-                <td><%= 'Action placeholder' %></td>
-              </tr>
-            <% end %>
+        <tbody id="tracked_stocks_body">
+          <% @tracked_stocks.each do |stock| %>
+            <%= render 'stocks/stock_row', stock: stock %>
+          <% end %>
         </tbody>
       </table>
     </div>
