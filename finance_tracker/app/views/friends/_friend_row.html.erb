@@ -1,0 +1,8 @@
+<tr id='friend-<%= friend.id %>'>
+    <th scope="row"><%= friend.email %></th>
+    <td><%= friend.first_name %></td>
+    <td><%= friend.last_name %></td>
+    <td>
+        <%= button_to 'Remove', "friend_path(friend)", method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+    </td>
+</tr>
