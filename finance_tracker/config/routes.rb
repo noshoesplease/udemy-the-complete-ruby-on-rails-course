@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   # resources :friendships, only: [ :create, :destroy ]
 
   get "search_friend", to: "users#search"
+
+  get "sandbox", to: "sandbox#index"
 end
