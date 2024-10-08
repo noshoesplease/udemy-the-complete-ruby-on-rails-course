@@ -1,0 +1,15 @@
+<%= turbo_frame_tag "friend_search" do %>
+    <% if @friend.present? %>
+    <div class="card card-header results-block">
+        <strong>Email: </strong> <%= @friend %>
+        <strong>Name: </strong> <%= @friend %>
+        <strong>Price: </strong> <%= @friend %>
+        <%= link_to 'Follow friend?', '#',
+                                class: "btn btn-sm btn-success", method: :post %>
+    </div>
+    <% else %>
+        <div class="card card-header results-block">
+            <strong>No results found</strong>
+        </div>
+    <% end %>
+<% end %>

@@ -4,12 +4,20 @@
   <div class="col-9">
     <div class="search-area">
       <h3>Search Friends</h3>
-      <%= form_with url: search_friend_path, method: "get", data: { turbo_frame: "friend_results" } do %>
-        <%= text_field_tag :friend, params[:friend], placeholder: "Name or email", autofocus: true, class: "form-control form-control-lg mb-3" %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= form_with url: search_friend_path, method: "get", data: { turbo_frame: "friend_search" }, local: false do |form| %>
+        <%= form.label :input_text, "Enter some text:" %>
+        <%= form.text_field :friend, placeholder: "Name or email", class: "form-control form-control-lg mb-3" %>
+        <%= form.submit "Search", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
 </div>
 
-<%= render 'friends/list' %>
+<!-- Turbo Frame where the search results will be rendered -->
+<%= turbo_frame_tag "friend_search" do %>
+<% end %>
+
+<!-- Display all friends separately -->
+<div>
+  <%= render 'friends/list' %>
+</div>
