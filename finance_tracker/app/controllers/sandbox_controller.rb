@@ -5,6 +5,21 @@ class SandboxController < ApplicationController
   def turbo_frame_demo
   end
 
+  def turbo_frame_with_input_demo
+    if params[:input_text].present?
+      # Process the input_text param
+      @processed_text = "You entered: #{params[:input_text]}"
+    else
+      @processed_text = "Please enter some text."
+    end
+
+    # This will render back to the turbo frame
+    respond_to do |format|
+      format.html # For the initial load
+      format.turbo_stream # For turbo frame requests
+    end
+  end
+
   def turbo_stream_demo
     respond_to do |format|
       format.turbo_stream do

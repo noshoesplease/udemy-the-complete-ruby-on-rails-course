@@ -14,7 +14,20 @@
         <p>content will show here</p>
     <% end %> 
     <%= link_to "Press Me", turbo_frame_sandbox_path, data: { turbo_frame: 'turbo-frame-demo'}, method: :get, class: 'link-button' %>
+</div>
 
+<hr>
+
+<div id="turboFrameDemoWithInput">
+    <h2>Turbo Frame Demo with Input</h2>
+    <%= form_with url: turbo_frame_sandbox_with_input_path, method: :get, data: { turbo_frame: "turbo-frame-demo-with-input" }, local: false do |form| %>
+        <%= form.label :input_text, "Enter some text:" %>
+        <%= form.text_field :input_text %>
+        <%= form.submit "Submit" %>
+      <% end %>
+    
+    <%= turbo_frame_tag "turbo-frame-demo-with-input" do %>
+    <% end %>
 </div>
 
 <hr>

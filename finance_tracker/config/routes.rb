@@ -28,5 +28,6 @@ Rails.application.routes.draw do
   get "sandbox", to: "sandbox#index"
   post "turbo_steam_sandbox", to: "sandbox#turbo_stream_demo"
   get "turbo_frame_sandbox", to: "sandbox#turbo_frame_demo"
+  get "turbo_frame_sandbox_with_input", to: "sandbox#turbo_frame_with_input_demo"
   post "turbo_stream_websocket_sandbox", to: "sandbox#turbo_stream_websocket_demo"
 end
