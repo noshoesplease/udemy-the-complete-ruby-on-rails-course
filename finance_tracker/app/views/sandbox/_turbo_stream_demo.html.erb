@@ -1,0 +1,24 @@
+<div>
+    Turbo stream 'Hello world' content demo.
+</div>
+<div>
+    <h4>Explanation</h4>
+    <p>
+        Turbo Streams take interactivity a step further. They allow you to update any part of the page dynamically, not just specific frames. This is achieved by sending small, targeted HTML fragments from the server to the browser. Turbo Streams can be triggered by various events like form submissions, button clicks, or even server-side broadcasts.
+    </p>
+</div>
+
+
+<p>Here's how they work:</p>
+
+<ul>
+    <li>
+        <strong>Server-side Updates: </strong>Your Rails application generates HTML markup representing the updated content.
+    </li>
+    <li>
+        <strong>Streaming Protocol:</strong>The generated HTML is transmitted to the client using a streaming protocol like WebSockets or Server-Sent Events (SSE).
+    </li>
+    <li>
+        <strong>Client-side Rendering:</strong>The client-side JavaScript included with Hotwire receives the streamed HTML and inserts it into the appropriate location on the page using DOM manipulation.
+    </li>
+</ul>

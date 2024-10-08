@@ -26,4 +26,7 @@ Rails.application.routes.draw do
   get "search_friend", to: "users#search"
 
   get "sandbox", to: "sandbox#index"
+  post "turbo_steam_sandbox", to: "sandbox#turbo_stream_demo"
+  get "turbo_frame_sandbox", to: "sandbox#turbo_frame_demo"
+  post "turbo_stream_websocket_sandbox", to: "sandbox#turbo_stream_websocket_demo"
 end

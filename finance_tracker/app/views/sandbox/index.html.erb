@@ -1,1 +1,52 @@
-Sandbox
+<div id='turboStreamDemo'>
+    <h2>turboStreamDemo</h2>
+    <p id="turboStreamDemoContent">
+        content will show here
+    </p>
+    <%= button_to "Press Me", turbo_steam_sandbox_path, method: :post, remote: true %>
+</div>
+
+<hr>
+
+<div id="turboFrameDemo">
+    <h2>turboFrameDemo</h2>
+    <%= turbo_frame_tag "turbo-frame-demo" do %>
+        <p>content will show here</p>
+    <% end %> 
+    <%= link_to "Press Me", turbo_frame_sandbox_path, data: { turbo_frame: 'turbo-frame-demo'}, method: :get, class: 'link-button' %>
+
+</div>
+
+<hr>
+
+<div id="stimulusDemo">
+    <h2>stimulusDemo</h2>
+    <div data-controller="stimulus-demo">
+        <p data-stimulus-demo-target="output">content will show here</p>
+        <%# The data-stimulus-demo-target attribute is a way to 
+        <%# connect a given HTML element to the controller such 
+        <%# that its value can be accessed inside the controller. %>
+
+        <%# In this case, with data-stimulus-demo-target="name", 
+        <%# we add name to our controller’s list of target definitions. 
+        <%# Stimulus will automatically create a this.nameTarget 
+        <%# property which returns the first matching target 
+        <%# element. We can use this property to read 
+        <%# the element’s value and build our greeting string. %>
+        <input data-stimulus-demo-target="name" type="text">
+        <button data-action="click->stimulus-demo#greet">Greet</button>
+    </div>
+</div>
+
+<hr>
+
+<div id="webSocketDemo">
+    <h2>Turbo Stream WebSocket Counter Demo</h2>
+    <p id="counterContent">
+        Counter: <%= 0 %>
+    </p>
+
+    <%= turbo_stream_from "sandbox_stream" %>
+
+    <%= button_to "Start Counter", turbo_stream_websocket_sandbox_path, method: :post %>
+</div>
