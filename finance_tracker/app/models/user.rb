@@ -29,8 +29,13 @@ class User < ApplicationRecord
     under_stock_limit? && !stock_already_tracked?(ticker_symbol)
   end
 
+  def except_current_user(users)
+    users.reject { |user| user.id == self.id }
+  end
+
   def self.search(param)
     param.strip!
+    return nil if param.blank?
     to_send_back = (first_name_matches(param) + last_name_matches(param) + email_matches(param)).uniq
     return nil unless to_send_back
     to_send_back

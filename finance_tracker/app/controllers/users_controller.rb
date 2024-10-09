@@ -8,27 +8,17 @@ class UsersController < ApplicationController
   end
 
   def friend_search
-    # render json: params[:friend]
-    # @friends = User.search(params[:friend])
+    @friends = User.search(params[:friend])
+    @friends = current_user.except_current_user(@friends) if @friends.present?
 
-    # debugger
-    # respond_to do |format|
-    #   format.html { render partial: "users/friend_search", locals: { friends: @friends } }
-    #   format.turbo_stream # For turbo frame requests
-    # end
-    #
-    #
-    # @friend = User.search(params[:friend])
-
-    @friend = params[:friend]
-    if @friend.present? or !@friend.empty?
+    if @friends.present?
       respond_to do |format|
-        format.html { render partial: "users/friend_search", locals: { friend: @friend } }
+        format.html { render partial: "users/friend_search", locals: { friends: @friends } }
       end
     else
       respond_to do |format|
         flash.now[:alert] = "Couldn't find user"
-        format.html { render partial: "users/friend_search", locals: { friend: nil } }
+        format.html { render partial: "users/friend_search", locals: { friends: nil } }
       end
     end
   end
