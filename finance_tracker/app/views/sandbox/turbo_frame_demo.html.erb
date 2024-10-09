@@ -1,0 +1,29 @@
+<%= turbo_frame_tag 'turbo-frame-demo' do %>
+    <div>
+        Turbo frame 'Hello world' content demo.
+    </div>
+    <div>
+        <h4>Explanation</h4>
+        <p>
+            Turbo Frames allow you to segment your page into independent sections. Each section is wrapped
+            in a <code>&lt;turbo-frame&gt;</code> element with a unique identifier.
+            This identifier acts as a target for updates. Clicking a link or submitting a form within a frame can update just that specific frame with fresh HTML from the server.
+        </p>
+    </div>
+
+    <p>Here's how they work:</p>
+
+    <ul>
+        <li><strong>Frame Definition:</strong> You define Turbo Frames using the turbo-frame HTML tag. This tag can be
+            applied to any existing HTML element, transforming it into a self-contained unit.
+        </li>
+        <li><strong>Selective Updates:</strong> When a user interacts with an
+            element within a frame (e.g., clicking a button), or when the server needs to update the frames content, only
+            that specific frame is reloaded. This reduces the amount of data transferred and improves perceived performance.
+        </li>
+        <li><strong>Lazy Loading:</strong> Turbo Frames can be configured for
+            lazy loading, meaning their content is not fetched until the user scrolls or interacts with them. This further
+            optimizes performance by prioritizing the initial page load.
+        </li>
+    </ul>
+<% end %>
