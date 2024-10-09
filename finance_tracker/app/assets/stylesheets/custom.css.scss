@@ -35,7 +35,7 @@
   }
 }
 
-label[for="input_text"]{
+label[for="input_text"] {
   margin-bottom: 1rem;
 }
 
@@ -50,5 +50,11 @@ label[for="input_text"]{
     font-size: 0.875rem;
     border-radius: 0.2rem;
     display: inline-block;
+  }
+}
+
+#tracked_stocks_body {
+  .button_to {
+    display: inline;
   }
 }

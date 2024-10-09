@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get "search_friend", to: "users#friend_search"
   resources :friendships, only: [ :create, :destroy ]
 
+  resources :users, only: [ :show ]
+
   get "sandbox", to: "sandbox#index"
   post "turbo_steam_sandbox", to: "sandbox#turbo_stream_demo"
   get "turbo_frame_sandbox", to: "sandbox#turbo_frame_demo"
