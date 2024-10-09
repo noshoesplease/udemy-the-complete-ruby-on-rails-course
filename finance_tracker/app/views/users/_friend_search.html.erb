@@ -7,11 +7,19 @@
             <table class='col-md-12'>
                 <tbody>
                     <% @friends.each do |friend| %>
-                        <tr>
+                        <tr class='friend-result-row'>
                             <td><strong>Name: </strong> <%= friend.full_name %></td>
                             <td><strong>Email: </strong> <%= friend.email %></td>
-                            <td><strong>Actions: </strong> <%= link_to "View Profile", '#', class: 'btn btn-sm btn-success' %>
-                            <%= link_to 'Follow friend?', '#', class: "btn btn-sm btn-success", method: :post %></td>
+                            <td>
+                                <strong>Actions: </strong> <%= link_to "View Profile", '#', class: 'btn btn-sm btn-success' %>
+                                <% if  current_user.not_friends_with? friend.id %>
+                                    <%= link_to 'Follow friend?', '#', class: "btn btn-sm btn-success", method: :post %>
+                                <% else %>
+                                    <span class='bg-info text-white'>
+                                        You are friends
+                                    </span>
+                                <% end %>
+                            </td>
                         </tr>
                     <% end %>
                 </tbody>

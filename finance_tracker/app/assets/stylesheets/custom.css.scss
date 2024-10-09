@@ -1,8 +1,8 @@
 @import "bootstrap";
 
 .bd-links-link {
-  padding: .1875rem .5rem;
-  margin-top: .125rem;
+  padding: 0.1875rem 0.5rem;
+  margin-top: 0.125rem;
   color: var(--bs-body-color);
   text-decoration: none;
 }
@@ -16,26 +16,39 @@
 }
 
 .link-button {
-    cursor: pointer;
-    margin: 0;
-    padding: 1px 6px;
-    border-radius: 0;
-    box-sizing: border-box;
+  cursor: pointer;
+  margin: 0;
+  padding: 1px 6px;
+  border-radius: 0;
+  box-sizing: border-box;
+  background-color: buttonface;
+  border-color: buttonborder;
+  color: buttontext;
+  display: inline-block;
+  border-width: 2px;
+  border-style: outset;
+  text-decoration: none;
+  &:hover {
     background-color: buttonface;
     border-color: buttonborder;
     color: buttontext;
-    display: inline-block;
-    border-width: 2px;
-    border-style: outset;
-    text-decoration: none;
-    &:hover {
-      background-color: buttonface;
-      border-color: buttonborder;
-      color: buttontext;
-    }
+  }
+}
+
+label[for="input_text"]{
+  margin-bottom: 1rem;
 }
 
 .results-block {
   display: inline-block;
   margin-bottom: 1rem;
+}
+
+.friend-result-row {
+  span {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.2rem;
+    display: inline-block;
+  }
 }

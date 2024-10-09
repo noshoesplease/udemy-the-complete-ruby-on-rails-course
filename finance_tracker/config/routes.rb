@@ -21,9 +21,8 @@ Rails.application.routes.draw do
   resources :user_stocks, only: [ :create, :destroy ]
 
   get "my_friends", to: "users#my_friends"
-  # resources :friendships, only: [ :create, :destroy ]
-
   get "search_friend", to: "users#friend_search"
+  resources :friendships, only: [ :create, :destroy ]
 
   get "sandbox", to: "sandbox#index"
   post "turbo_steam_sandbox", to: "sandbox#turbo_stream_demo"

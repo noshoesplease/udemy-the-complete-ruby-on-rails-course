@@ -33,6 +33,10 @@ class User < ApplicationRecord
     users.reject { |user| user.id == self.id }
   end
 
+  def not_friends_with?(friend_id)
+    !friends.where(id: friend_id).exists?
+  end
+
   def self.search(param)
     param.strip!
     return nil if param.blank?

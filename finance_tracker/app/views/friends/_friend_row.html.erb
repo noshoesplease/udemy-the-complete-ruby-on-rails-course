@@ -3,6 +3,6 @@
     <td><%= friend.first_name %></td>
     <td><%= friend.last_name %></td>
     <td>
-        <%= button_to 'Stop following', "friend_path(friend)", method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-warning" %>
+        <%= button_to 'Stop following', friendship_path(friend), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-warning" %>
     </td>
 </tr>
