@@ -1,15 +1,15 @@
 def arrays_and_iterators_exercise1
   puts
-  puts "arrays_and_iterators_exercise1"
+  puts 'arrays_and_iterators_exercise1'
   puts
 
-  array = [1,2,3,4,5,6,7,8,9,10]
+  array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   print array
   puts
-  
+
   p array
   p array.last
-  
+
   array.each do |num|
     puts num
   end
@@ -19,7 +19,7 @@ end
 
 def arrays_and_iterators_exercise2
   puts
-  puts "arrays_and_iterators_exercise2"
+  puts 'arrays_and_iterators_exercise2'
   puts
 
   range = 1..10
@@ -36,7 +36,7 @@ end
 
 def arrays_and_iterators_exercise3
   puts
-  puts "arrays_and_iterators_exercise3"
+  puts 'arrays_and_iterators_exercise3'
   puts
 
   range = 1..10
@@ -63,18 +63,18 @@ end
 
 def arrays_and_iterators_exercise4
   puts
-  puts "arrays_and_iterators_exercise4"
+  puts 'arrays_and_iterators_exercise4'
   puts
 
-  range = "a".."z"
-  puts range.to_a.shuffle.to_s
+  range = 'a'..'z'
+  puts range.to_a.shuffle
   puts range.to_a.length
 
   range_arr = range.to_a
   print range_arr
   puts
 
-  ("A".."Z").to_a.each { |letter|  range_arr << letter }
+  ('A'..'Z').to_a.each { |letter| range_arr << letter }
   print range_arr
   puts
 end
@@ -82,46 +82,46 @@ end
 
 def arrays_and_iterators_exercise5
   puts
-  puts "arrays_and_iterators_exercise5"
+  puts 'arrays_and_iterators_exercise5'
   puts
 
   arr = []
   (1..10).to_a.each { |num| arr << num }
-  puts "original array"
+  puts 'original array'
   puts arr
   puts
 
-  to_unshift = "some string"
-  puts "to_unshift"
+  to_unshift = 'some string'
+  puts 'to_unshift'
   puts to_unshift
   puts
   arr.unshift to_unshift
-  puts "unshifted array"
+  puts 'unshifted array'
   puts arr
   puts
 
-  to_append = "some other string"
-  puts "to_append"
+  to_append = 'some other string'
+  puts 'to_append'
   puts to_append
   puts
   arr.append(to_append)
-  puts "appended array"
+  puts 'appended array'
   puts arr
   puts
 
   shifted = arr.shift
-  puts "shifted array"
+  puts 'shifted array'
   puts arr
   puts
-  puts "shifted value"
+  puts 'shifted value'
   puts shifted
   puts
 
   popped = arr.pop
-  puts "popped array"
+  puts 'popped array'
   puts arr
   puts
-  puts "popped value"
+  puts 'popped value'
   puts popped
   puts
 end
@@ -129,26 +129,26 @@ end
 
 def arrays_and_iterators_exercise6
   puts
-  puts "arrays_and_iterators_exercise6"
+  puts 'arrays_and_iterators_exercise6'
   puts
 
   arr = []
   (1..10).to_a.each { |num| arr << num }
-  puts "original array"
+  puts 'original array'
   puts arr
   puts
 
-  to_unshift = "some string"
-  puts "to_unshift"
+  to_unshift = 'some string'
+  puts 'to_unshift'
   puts to_unshift
   puts
 
   arr.unshift to_unshift
-  puts "unshifted array"
+  puts 'unshifted array'
   puts arr
   puts
 
-  puts "unshifting again"
+  puts 'unshifting again'
   puts
   arr.unshift(to_unshift)
 
@@ -171,16 +171,16 @@ end
 
 def arrays_and_iterators_exercise7
   puts
-  puts "arrays_and_iterators_exercise7"
+  puts 'arrays_and_iterators_exercise7'
   puts
 
   arr = []
   (1..10).to_a.each { |num| arr << num }
-  puts "original array"
+  puts 'original array'
   puts arr
   puts
 
-  puts "arr.empty?"
+  puts 'arr.empty?'
   puts arr.empty?
   puts
 
@@ -201,16 +201,16 @@ end
 
 def arrays_and_iterators_exercise8
   puts
-  puts "arrays_and_iterators_exercise8"
+  puts 'arrays_and_iterators_exercise8'
   puts
 
   arr = []
   (1..10).to_a.each { |num| arr << num }
-  puts "original array"
+  puts 'original array'
   puts arr
   puts
 
-  arr.unshift("devin")
+  arr.unshift('devin')
 
   puts "arr.join('-')"
   out = arr.join('-')
@@ -225,11 +225,11 @@ end
 
 def arrays_and_iterators_exercise9
   puts
-  puts "arrays_and_iterators_exercise9"
+  puts 'arrays_and_iterators_exercise9'
   puts
 
-  puts "%w{mars is the fourth planet from the sun}"
-  arr = %w{mars is the fourth planet from the sun}
+  puts '%w{mars is the fourth planet from the sun}'
+  arr = %w[mars is the fourth planet from the sun]
   print arr
   puts
 end
@@ -237,10 +237,10 @@ end
 
 def arrays_and_iterators_exercise10
   puts
-  puts "arrays_and_iterators_exercise10"
+  puts 'arrays_and_iterators_exercise10'
   puts
 
-  arr = %w(earth is the third planet from the sun)
+  arr = %w[earth is the third planet from the sun]
   print arr
   puts
 
@@ -263,27 +263,26 @@ def arrays_and_iterators_exercise10
 
   arr.each { |item| print item.capitalize }
   arr.each { |item| puts item.capitalize }
-
 end
 # arrays_and_iterators_exercise10
 
 def arrays_and_iterators_exercise11
   puts
-  puts "arrays_and_iterators_exercise11"
+  puts 'arrays_and_iterators_exercise11'
   puts
 
-  arr = %w(earth is the third planet from the sun)
+  arr = %w[earth is the third planet from the sun]
   print arr
   puts
 
   # filtering with select
-  puts "arr.select { |item| item.length > 5 }"
-  puts arr.select { |item| item.length > 5 }
+  puts 'arr.select { |item| item.length > 5 }'
+  puts(arr.select { |item| item.length > 5 })
   puts
 
   # filtering with reject
-  puts "arr.reject { |item| item.length > 5 }"
-  puts arr.reject { |item| item.length > 5 }
+  puts 'arr.reject { |item| item.length > 5 }'
+  puts(arr.reject { |item| item.length > 5 })
   puts
 end
 arrays_and_iterators_exercise11
