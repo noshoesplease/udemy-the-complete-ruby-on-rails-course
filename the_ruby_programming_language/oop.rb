@@ -11,7 +11,7 @@ class Student
     @email = email
     @student_id = student_id
   end
-  
+
   def to_s
     "Student-#{student_id}: #{first_name} #{last_name} (#{email})"
   end
@@ -35,14 +35,14 @@ end
 
 def oop_exercise1
   puts
-  puts "oop_exercise1"
+  puts 'oop_exercise1'
   puts
-  
-  student = Student.new "Devin", "Durgan", "devin.durgan@mail.com", 1
+
+  student = Student.new 'Devin', 'Durgan', 'devin.durgan@mail.com', 1
   puts student
   puts
 
-  student = Student.new "Atlas", "Smurgan", "atlas.smurgan@mail.com", 2
+  student = Student.new 'Atlas', 'Smurgan', 'atlas.smurgan@mail.com', 2
   puts student
   puts
 end
