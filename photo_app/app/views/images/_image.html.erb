@@ -1,0 +1,17 @@
+<div id="<%= dom_id image %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= image.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Picture:</strong>
+    <%= image_tag image.picture.url if image.picture? %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">User:</strong>
+    <%= image.user_id %>
+  </p>
+
+</div>
