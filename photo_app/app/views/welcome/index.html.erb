@@ -1,0 +1,41 @@
+<% if current_user %>
+  <h3 class="text-xl font-semibold mb-4">Welcome: <%= current_user.email %></h3>
+<% else %>
+  <div class="bg-gray-100 p-6 rounded-lg mb-8">
+    <h2 class="text-2xl font-bold mb-4">Welcome to the Photo Management App!</h2>
+    <p class="text-lg">
+      You'll love managing your Photos with our application. Sign up!
+    </p>
+  </div>
+
+  <div class="flex flex-col lg:flex-row justify-center space-y-8 lg:space-y-0 lg:space-x-8">
+    <div class="bg-white shadow-md rounded-lg p-6 w-full lg:w-1/3">
+      <h2 class="text-xl font-semibold mb-2">Premium Plan</h2>
+      <div class="text-gray-600 text-sm mb-4">
+        <span class="font-medium">Price:</span> $10
+      </div>
+      <div class="mb-4">
+        <ul class="list-disc list-inside space-y-2">
+          <li>Unlimited Image Uploads</li>
+          <li>Responsive design</li>
+          <li>Access anywhere</li>
+        </ul>
+      </div>
+      <%= link_to 'Sign Up', new_user_registration_path, class: 'bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600' %>
+    </div>
+    
+    <div class="bg-white shadow-md rounded-lg p-6 w-full lg:w-1/3">
+      <h2 class="text-xl font-semibold mb-2">Amaze Plan</h2>
+      <div class="text-gray-600 text-sm mb-4">
+        <span class="font-medium">Price:</span> $20
+      </div>
+      <div class="mb-4">
+        <ul class="list-disc list-inside space-y-2">
+          <li>All from Premium</li>
+          <li class="font-semibold">Unlimited projects</li>
+        </ul>
+      </div>
+      <%= link_to 'Sign Up', new_user_registration_path, class: 'bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600' %>
+    </div>
+  </div>
+<% end %>
