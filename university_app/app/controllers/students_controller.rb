@@ -8,16 +8,17 @@ class StudentsController < ApplicationController
   end
 
   def create
-    # @student = Student.new(student_params)
-    # if @student.save
-    #   redirect_to students_path
-    # else
-    #   render :new
-    # end
+    @student = Student.new(student_params)
+    if @student.save
+      flash[:success] = "Student was created successfully"
+      redirect_to students_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
-  # private
-  # def student_params
-  #   params.require(:student).permit(:name, :email, :password)
-  # end
+  private
+  def student_params
+    params.require(:student).permit(:name, :email)
+  end
 end
