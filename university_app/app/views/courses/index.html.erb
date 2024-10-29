@@ -4,38 +4,18 @@
         <h3 class='text-center my-4 text-4xl'>Course Listing</h3>
 
         <ul role="list" class="grid grid-cols-2 divide-y divide-gray-200">
-            <li class="rounded-lg bg-white shadow px-4 py-4 flex w-64 flex-col text-center lg:w-auto">
-                <div class="group relative">
-                    <div class="mt-6">
-                        <p class="text-sm text-gray-500">Code: CS111</p>
-                        <h3 class="mt-1 font-semibold text-gray-900">
-                            <a href="#">
-                                <span class="absolute inset-0"></span>
-                                Machined Introduction to Computer Science
-                            </a>
-                        </h3>
-                        <p class="mt-1 text-gray-900">This course is an introduction to computer science and programming in Python.</p>
-                     <a class='mt-2 text-pretty text-lg font-semibold tracking-tight lg:text-balance text-center' href="#">View Course</a>
-                        <a class='mt-2 text-pretty text-lg font-semibold tracking-tight lg:text-balance text-center' href="#">Enroll</a>
+            <% Course.all.each do |course| %>
+                <li class="rounded-lg bg-white shadow px-4 py-4 flex w-64 flex-col text-center lg:w-auto">
+                    <div class="group relative">
+                        <div class="mt-6">
+                            <h3 class="font-semibold text-sm text-gray-500"><%= course.short_name %>: <%= course.name %></h3>
+                            <p class="mt-1 text-gray-900"><%= course.description %></p>
+                            <a class='rounded bg-white px-2 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"' href="#">View Course</a>
+                            <a class='rounded bg-white px-2 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"' href="#">Enroll</a>
+                        </div>
                     </div>
-                </div>
-            </li>
-            <li class="rounded-lg bg-white shadow px-4 py-4 flex w-64 flex-col text-center lg:w-auto">
-                <div class="group relative">
-                    <div class="mt-6">
-                        <p class="text-sm text-gray-500">Code: CS111</p>
-                        <h3 class="mt-1 font-semibold text-gray-900">
-                            <a href="#">
-                                <span class="absolute inset-0"></span>
-                                Machined Introduction to Computer Science
-                            </a>
-                        </h3>
-                        <p class="mt-1 text-gray-900">This course is an introduction to computer science and programming in Python.</p>
-                     <a class='mt-2 text-pretty text-lg font-semibold tracking-tight lg:text-balance text-center' href="#">View Course</a>
-                        <a class='mt-2 text-pretty text-lg font-semibold tracking-tight lg:text-balance text-center' href="#">Enroll</a>
-                    </div>
-                </div>
-            </li>
+                </li>
+            <% end %>
         </ul>
     </div>
 </div>
