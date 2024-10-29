@@ -4,5 +4,7 @@
         <p class="mt-1 text-gray-900">Email: <%= @student.email %></p>
         <p class="mt-1 text-gray-900">Course Enrollments: None</p>
         
+        <%= link_to 'Edit your profile', edit_student_path(@student), class: '' %>
+
     </div>
 </div>
