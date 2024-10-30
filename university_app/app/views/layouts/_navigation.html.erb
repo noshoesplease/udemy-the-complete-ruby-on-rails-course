@@ -45,11 +45,14 @@
         <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Courses</a>
-            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Enrollments</a>
-            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+            <%= link_to "Courses", root_path, class: "rounded-md px-3 py-2 text-sm font-medium #{current_page?(root_path) ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}", aria: { current: current_page?(root_path) ? "page" : nil } %>
+
             <% if logged_in? %>
-                <%= link_to 'Log out', logout_path, class: 'narounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white', data: { turbo_method: :delete } %>
+                <%= link_to "Students", students_path, class: "rounded-md px-3 py-2 text-sm font-medium #{current_page?(students_path) ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}", aria: { current: current_page?(students_path) ? "page" : nil } %>
+            <% end %>
+
+            <% if logged_in? %>
+                <%= link_to 'Log out', logout_path, class: 'rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white', data: { turbo_method: :delete } %>
             <% end %>
             </div>
         </div>
