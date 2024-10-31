@@ -2,7 +2,18 @@
     <div class="mt-6">
         <h3 class="font-semibold text-sm text-gray-500">Name: <%= @student.name %></h3>
         <p class="mt-1 text-gray-900">Email: <%= @student.email %></p>
-        <p class="mt-1 text-gray-900">Course Enrollments: None</p>
+        <p class="mt-1 text-gray-900">
+            Course Enrollments: 
+            <% if @student.courses.empty? %>
+                None
+            <% else %>
+                <ul>
+                    <% @student.courses.each do |course| %>
+                        <li><%= course.name %></li>
+                    <% end %>
+                </ul>
+            <% end %>
+        </p>
         
         <% if current_user == @student %>
             <%= link_to 'Edit your profile', edit_student_path(@student), class: '' %>
