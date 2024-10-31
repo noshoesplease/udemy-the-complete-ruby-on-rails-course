@@ -1,0 +1,22 @@
+<% if @student.errors.any? %>
+    <% @student.errors.full_messages.each do |msg| %>
+        <%= msg %>
+    <% end %>
+<% end %>
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+        <!-- Content goes here -->
+        <h3 class='text-center my-4 text-4xl'>Edit your profile</h3>
+
+        <%= form_with model: @student, local: true do |f| %>
+            
+            <%= f.label :name, class: '' %>
+            <%= f.text_field :name , class: '' %>
+            
+            <%= f.label :email, class: '' %>
+            <%= f.email_field :email , class: '' %>
+            
+            <%= f.submit class: '' %>
+        <% end %>
+    </div>  
+</div>
