@@ -20,6 +20,8 @@
         
         <% if user_signed_in? %>
             <%= link_to "Your Profile", edit_user_registration_path, class: "text-sm/6 font-semibold text-gray-900" %>
+            <%= link_to "Teams", teams_path, class: "text-sm/6 font-semibold text-gray-900" %>
+
             <%= link_to "Log out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "text-sm/6 font-semibold text-gray-900" %>
         <% else %>
             <%= link_to "Log in".html_safe + " <span aria-hidden='true'>&rarr;</span>".html_safe, new_user_session_path, class: "text-sm/6 font-semibold text-gray-900" %>
