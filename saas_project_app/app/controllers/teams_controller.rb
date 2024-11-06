@@ -1,9 +1,10 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: %i[ show edit update destroy ]
+  before_action :authorize_member, only: %i[ show edit update destroy ]
 
   # GET /teams or /teams.json
   def index
-    @teams = Team.all
+    @teams = current_user.teams
   end
 
   # GET /teams/1 or /teams/1.json
@@ -25,6 +26,7 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       if @team.save
+        @team.memberships.create!(user: current_user, roles: { admin: true })
         format.html { redirect_to @team, notice: "Team was successfully created." }
         format.json { render :show, status: :created, location: @team }
       else
@@ -66,5 +68,9 @@ class TeamsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def team_params
       params.require(:team).permit(:name)
+    end
+
+    def authorize_member
+      redirect_to teams_path, alert: "You are not a member" unless @team.users.include? current_user
     end
 end
