@@ -1,5 +1,4 @@
-class MembershipsController < ApplicationController
-  before_action :set_current_team
+class MembershipsController < AuthorizedController
   def index
     @memberships = @current_team.memberships
   end
@@ -12,11 +11,7 @@ class MembershipsController < ApplicationController
     return redirect_to team_memberships_path(@current_team), alert: "Email is invalid." unless user.valid?
 
     user.memberships.find_or_create_by(team: @current_team, roles: { admin: false, editor: true })
+    # TODO: Send email to user
     redirect_to team_memberships_path(@current_team), notice: "#{email} was successfully invited."
-  end
-
-  private
-  def set_current_team
-    @current_team = Team.find(params[:team_id])
   end
 end
