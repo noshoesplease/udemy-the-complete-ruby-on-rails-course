@@ -11,5 +11,7 @@
     <div class="inline-block ml-2">
       <%= button_to "Destroy this team", @team, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     </div>
+
+    <%= link_to 'Members', team_memberships_path(@team) %>
   </div>
 </div>

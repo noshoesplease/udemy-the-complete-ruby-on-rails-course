@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   root "home#index"
   devise_for :users
 
-  resources :memberships
-  resources :teams
+  resources :teams do
+    resources :memberships
+  end
 end
