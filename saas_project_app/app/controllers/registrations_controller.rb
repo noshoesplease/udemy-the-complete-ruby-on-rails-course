@@ -1,23 +1,30 @@
 class RegistrationsController < Devise::RegistrationsController
   def create
-    # Extract team information from the main params hash before calling `super`
     team_params = params[:user].delete(:team)
 
-    super do |user|
-      if user.persisted?
-        # Create the team with the provided data
-        team = Team.create(name: team_params[:name], plan: team_params[:plan])
+    # Manually handle user creation
+    build_resource(sign_up_params)
 
-        # Create the membership linking the user and team with admin role
-        Membership.create(user: user, team: team, roles: { admin: true })
-      end
+    resource.save
+    yield resource if block_given?
+    if resource.persisted?
+      # Create team and membership manually
+      team = Team.create(name: team_params[:name], plan: team_params[:plan])
+      Membership.create(user: resource, team: team, roles: { admin: true })
+
+      # Instead of signing in the user, redirect to a welcome or setup page
+      flash[:notice] = "Registration successful! Please log in."
+      redirect_to new_user_session_path
+    else
+      clean_up_passwords resource
+      set_minimum_password_length
+      respond_with resource
     end
   end
 
   private
 
   def sign_up_params
-    # Only permit standard user fields
     params.require(:user).permit(:email, :password, :password_confirmation)
   end
 end
