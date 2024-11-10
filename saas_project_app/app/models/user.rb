@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :memberships, dependent: :destroy
   has_many :teams, through: :memberships
+
+  accepts_nested_attributes_for :teams # This allows team data to be nested in user forms
 end

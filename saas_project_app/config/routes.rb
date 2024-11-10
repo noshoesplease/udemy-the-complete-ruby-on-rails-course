@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root "home#index"
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
+
 
   resources :teams do
     resources :memberships do
