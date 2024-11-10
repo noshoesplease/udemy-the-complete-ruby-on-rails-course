@@ -1,13 +1,23 @@
 class RegistrationsController < Devise::RegistrationsController
-  def new
-    build_resource({})
-    resource.teams.build # This adds a blank Team instance for the form
-    respond_with resource
+  def create
+    # Extract team information from the main params hash before calling `super`
+    team_params = params[:user].delete(:team)
+
+    super do |user|
+      if user.persisted?
+        # Create the team with the provided data
+        team = Team.create(name: team_params[:name], plan: team_params[:plan])
+
+        # Create the membership linking the user and team with admin role
+        Membership.create(user: user, team: team, roles: { admin: true })
+      end
+    end
   end
 
   private
 
   def sign_up_params
-    params.require(:user).permit(:email, :password, :password_confirmation, teams_attributes: [ :name, :plan ])
+    # Only permit standard user fields
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 end
