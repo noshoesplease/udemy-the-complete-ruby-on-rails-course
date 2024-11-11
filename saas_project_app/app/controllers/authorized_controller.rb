@@ -1,6 +1,5 @@
 class AuthorizedController < ApplicationController
   before_action :set_current_team
-
   before_action :authorize_member
 
   private
@@ -10,5 +9,6 @@ class AuthorizedController < ApplicationController
 
   def authorize_member
     redirect_to teams_path, alert: "You are not a member" unless @current_team.users.include? current_user
+    # redirect_to teams_path, alert: "You are not a member" unless @current_team.memberships.exists?(user_id: current_user.id)
   end
 end

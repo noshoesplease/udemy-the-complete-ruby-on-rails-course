@@ -21,5 +21,6 @@ Rails.application.routes.draw do
         post :invite
       end
     end
+    resources :projects
   end
 end

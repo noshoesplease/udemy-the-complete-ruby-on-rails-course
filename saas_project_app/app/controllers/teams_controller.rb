@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: %i[ show edit update destroy ]
+  before_action :set_current_team, only: %i[ show edit update destroy ]
   before_action :authorize_member, only: %i[ show edit update destroy ]
 
   # GET /teams or /teams.json
@@ -13,7 +13,9 @@ class TeamsController < ApplicationController
 
   # GET /teams/new
   def new
-    @team = Team.new
+    # @team = Team.new
+    @team = Team.find(params[:team_id])
+    @project = @team.projects.build
   end
 
   # GET /teams/1/edit
@@ -21,18 +23,28 @@ class TeamsController < ApplicationController
   end
 
   # POST /teams or /teams.json
-  def create
-    @team = Team.new(team_params)
+  # def create
+  #   @team = Team.new(team_params)
 
-    respond_to do |format|
-      if @team.save
-        @team.memberships.create!(user: current_user, roles: { admin: true })
-        format.html { redirect_to @team, notice: "Team was successfully created." }
-        format.json { render :show, status: :created, location: @team }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @team.errors, status: :unprocessable_entity }
-      end
+  #   respond_to do |format|
+  #     if @team.save
+  #       @team.memberships.create!(user: current_user, roles: { admin: true })
+  #       format.html { redirect_to @team, notice: "Team was successfully created." }
+  #       format.json { render :show, status: :created, location: @team }
+  #     else
+  #       format.html { render :new, status: :unprocessable_entity }
+  #       format.json { render json: @team.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+  def create
+    @team = Team.find(params[:team_id])
+    @project = @team.projects.build(project_params)
+
+    if @project.save
+      redirect_to team_project_path(@team, @project), notice: "Project was successfully created."
+    else
+      render :new
     end
   end
 
@@ -61,7 +73,7 @@ class TeamsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_team
+    def set_current_team
       @team = Team.find(params[:id])
     end
 
