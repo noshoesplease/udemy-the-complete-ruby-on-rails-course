@@ -23,4 +23,11 @@ Rails.application.routes.draw do
     end
     resources :projects
   end
+
+  # redirect
+  get "docs/:article", to: redirect("/")
+
+  get "/_health", to: ->(_env) {
+    [ 200, { "Content-Type" => "text/html" }, [ "I'm healthy" ] ]
+  }
 end
