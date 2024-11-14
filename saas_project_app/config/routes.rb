@@ -31,4 +31,5 @@ Rails.application.routes.draw do
   end
 
   resources :artifacts
+  resources :user_projects
 end
