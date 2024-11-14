@@ -1,0 +1,109 @@
+
+<div class="grow p-6 lg:rounded-lg lg:bg-zinc-900 lg:p-10 lg:shadow-sm lg:ring-1 lg:ring-white/10 dark:lg:bg-white dark:lg:ring-zinc-950/5">
+  <div class="mx-auto max-w-6xl">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "mx-auto max-w-4xl" }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div class="text-sm text-gray-500">
+            Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+          </div>
+        <% end %>
+
+
+        <h1 class="text-2xl/8 font-semibold text-white sm:text-xl/8 dark:text-zinc-950">Edit Profile</h1>
+         
+        <hr role="presentation" class="my-10 mt-6 w-full border-t border-white/10 dark:border-zinc-950/10">
+         
+        <%# email %>
+        <section class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+          <div class="space-y-1">
+            <h2 class="text-base/7 font-semibold text-white sm:text-sm/6 dark:text-zinc-950">Email</h2>
+          </div>
+          <div>
+            <span data-slot="control" class="relative block w-full before:absolute before:inset-px before:rounded-[calc(theme(borderRadius.lg)-1px)] before:bg-zinc-900 before:shadow dark:before:hidden after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:ring-inset after:ring-transparent sm:after:focus-within:ring-2 sm:after:focus-within:ring-blue-500 has-[[data-disabled]]:opacity-50 before:has-[[data-disabled]]:bg-white/5 before:has-[[data-disabled]]:shadow-none before:has-[[data-invalid]]:shadow-red-500/10">
+              <%# <%= f.label :email, class: "block text-sm font-medium text-gray-700"  %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "relative block w-full appearance-none rounded-lg px-[calc(theme(spacing[3.5])-1px)] py-[calc(theme(spacing[2.5])-1px)] sm:px-[calc(theme(spacing[3])-1px)] sm:py-[calc(theme(spacing[1.5])-1px)] text-base/6 text-white placeholder:text-zinc-400 sm:text-sm/6 dark:text-zinc-950 border border-white/10 data-[hover]:border-white/20 dark:border-zinc-950/10 dark:data-[hover]:border-zinc-950/20 bg-transparent dark:bg-zinc-900/5 focus:outline-none data-[invalid]:border-red-500 data-[invalid]:data-[hover]:border-red-500 data-[invalid]:dark:border-red-500 data-[invalid]:data-[hover]:dark:border-red-500 data-[disabled]:border-white/20 dark:data-[hover]:data-[disabled]:border-zinc-950/15 data-[disabled]:dark:border-zinc-950/15 data-[disabled]:dark:bg-zinc-950/[2.5%] dark:[color-scheme:light]" %>
+            </span>
+          </div>
+        </section>
+        
+        <hr role="presentation" class="my-10 w-full border-t border-white/5 dark:border-zinc-950/5">
+        
+        <%# password %>
+        <section class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+          <div class="space-y-1">
+            <h2 class="text-base/7 font-semibold text-white sm:text-sm/6 dark:text-zinc-950">Password</h2>
+            <% if @minimum_password_length %>
+              <em class="text-xs text-gray-500"><%= @minimum_password_length %> characters minimum</em>
+            <% end %>
+            <p data-slot="text" class="text-base/6 text-zinc-400 sm:text-sm/6 dark:text-zinc-500">(leave blank if you don't want to change it)</p>
+          </div>
+          <div>
+            <span data-slot="control" class="relative block w-full before:absolute before:inset-px before:rounded-[calc(theme(borderRadius.lg)-1px)] before:bg-zinc-900 before:shadow dark:before:hidden after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:ring-inset after:ring-transparent sm:after:focus-within:ring-2 sm:after:focus-within:ring-blue-500 has-[[data-disabled]]:opacity-50 before:has-[[data-disabled]]:bg-white/5 before:has-[[data-disabled]]:shadow-none before:has-[[data-invalid]]:shadow-red-500/10">
+              <%# <%= f.label :password, class: "block text-sm font-medium text-gray-700"  %>
+              <%= f.password_field :password, autocomplete: "new-password", class: "relative block w-full appearance-none rounded-lg px-[calc(theme(spacing[3.5])-1px)] py-[calc(theme(spacing[2.5])-1px)] sm:px-[calc(theme(spacing[3])-1px)] sm:py-[calc(theme(spacing[1.5])-1px)] text-base/6 text-white placeholder:text-zinc-400 sm:text-sm/6 dark:text-zinc-950 border border-white/10 data-[hover]:border-white/20 dark:border-zinc-950/10 dark:data-[hover]:border-zinc-950/20 bg-transparent dark:bg-zinc-900/5 focus:outline-none data-[invalid]:border-red-500 data-[invalid]:data-[hover]:border-red-500 data-[invalid]:dark:border-red-500 data-[invalid]:data-[hover]:dark:border-red-500 data-[disabled]:border-white/20 dark:data-[hover]:data-[disabled]:border-zinc-950/15 data-[disabled]:dark:border-zinc-950/15 data-[disabled]:dark:bg-zinc-950/[2.5%] dark:[color-scheme:light]" %>
+            </span>
+          </div>
+        </section>
+        
+        <hr role="presentation" class="my-10 w-full border-t border-white/5 dark:border-zinc-950/5">
+        
+        <%# password confirmation %>
+        <section class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+          <div class="space-y-1">
+            <h2 class="text-base/7 font-semibold text-white sm:text-sm/6 dark:text-zinc-950">Password confirmation</h2>
+          </div>
+          <div>
+            <span data-slot="control" class="relative block w-full before:absolute before:inset-px before:rounded-[calc(theme(borderRadius.lg)-1px)] before:bg-zinc-900 before:shadow dark:before:hidden after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:ring-inset after:ring-transparent sm:after:focus-within:ring-2 sm:after:focus-within:ring-blue-500 has-[[data-disabled]]:opacity-50 before:has-[[data-disabled]]:bg-white/5 before:has-[[data-disabled]]:shadow-none before:has-[[data-invalid]]:shadow-red-500/10">
+               <%# <%= f.label :password_confirmation, class: "block text-sm font-medium text-gray-700" %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "relative block w-full appearance-none rounded-lg px-[calc(theme(spacing[3.5])-1px)] py-[calc(theme(spacing[2.5])-1px)] sm:px-[calc(theme(spacing[3])-1px)] sm:py-[calc(theme(spacing[1.5])-1px)] text-base/6 text-white placeholder:text-zinc-400 sm:text-sm/6 dark:text-zinc-950 border border-white/10 data-[hover]:border-white/20 dark:border-zinc-950/10 dark:data-[hover]:border-zinc-950/20 bg-transparent dark:bg-zinc-900/5 focus:outline-none data-[invalid]:border-red-500 data-[invalid]:data-[hover]:border-red-500 data-[invalid]:dark:border-red-500 data-[invalid]:data-[hover]:dark:border-red-500 data-[disabled]:border-white/20 dark:data-[hover]:data-[disabled]:border-zinc-950/15 data-[disabled]:dark:border-zinc-950/15 data-[disabled]:dark:bg-zinc-950/[2.5%] dark:[color-scheme:light]" %>
+            </span>
+          </div>
+        </section>
+        
+        <hr role="presentation" class="my-10 w-full border-t border-white/5 dark:border-zinc-950/5">
+        
+        <%# current password %>
+        <section class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+          <div class="space-y-1">
+            <h2 class="text-base/7 font-semibold text-white sm:text-sm/6 dark:text-zinc-950">Current password</h2>
+            <p data-slot="text" class="text-base/6 text-zinc-400 sm:text-sm/6 dark:text-zinc-500">(we need your current password to confirm your changes)</p>
+          </div>
+          <div>
+            <span data-slot="control" class="relative block w-full before:absolute before:inset-px before:rounded-[calc(theme(borderRadius.lg)-1px)] before:bg-zinc-900 before:shadow dark:before:hidden after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:ring-inset after:ring-transparent sm:after:focus-within:ring-2 sm:after:focus-within:ring-blue-500 has-[[data-disabled]]:opacity-50 before:has-[[data-disabled]]:bg-white/5 before:has-[[data-disabled]]:shadow-none before:has-[[data-invalid]]:shadow-red-500/10">
+              <%# <%= f.label :current_password, class: "block text-sm font-medium text-gray-700" %>
+              <%= f.password_field :current_password, autocomplete: "current-password", class: "relative block w-full appearance-none rounded-lg px-[calc(theme(spacing[3.5])-1px)] py-[calc(theme(spacing[2.5])-1px)] sm:px-[calc(theme(spacing[3])-1px)] sm:py-[calc(theme(spacing[1.5])-1px)] text-base/6 text-white placeholder:text-zinc-400 sm:text-sm/6 dark:text-zinc-950 border border-white/10 data-[hover]:border-white/20 dark:border-zinc-950/10 dark:data-[hover]:border-zinc-950/20 bg-transparent dark:bg-zinc-900/5 focus:outline-none data-[invalid]:border-red-500 data-[invalid]:data-[hover]:border-red-500 data-[invalid]:dark:border-red-500 data-[invalid]:data-[hover]:dark:border-red-500 data-[disabled]:border-white/20 dark:data-[hover]:data-[disabled]:border-zinc-950/15 data-[disabled]:dark:border-zinc-950/15 data-[disabled]:dark:bg-zinc-950/[2.5%] dark:[color-scheme:light]" %>
+            </span>
+          </div>
+        </section>
+        
+        <hr role="presentation" class="my-10 w-full border-t border-white/5 dark:border-zinc-950/5">
+        
+        <div class="flex justify-end gap-4">
+          <%= f.submit "Save changes", class: "relative isolate inline-flex items-center justify-center gap-x-2 rounded-lg border border-zinc-400 text-base/6 font-semibold text-zinc-800 px-[calc(theme(spacing[3.5])-1px)] py-[calc(theme(spacing[2.5])-1px)] sm:px-[calc(theme(spacing.3)-1px)] sm:py-[calc(theme(spacing[1.5])-1px)] sm:text-sm/6 focus:outline-none data-[focus]:outline data-[focus]:outline-2 data-[focus]:outline-offset-2 data-[focus]:outline-blue-500 data-[disabled]:opacity-50 [&amp;>[data-slot=icon]]:-mx-0.5 [&amp;>[data-slot=icon]]:my-0.5 [&amp;>[data-slot=icon]]:size-5 [&amp;>[data-slot=icon]]:shrink-0 [&amp;>[data-slot=icon]]:text-[--btn-icon] [&amp;>[data-slot=icon]]:sm:my-1 [&amp;>[data-slot=icon]]:sm:size-4 forced-colors:[--btn-icon:ButtonText] forced-colors:data-[hover]:[--btn-icon:ButtonText] data-[active]:bg-zinc-950/5 data-[hover]:bg-zinc-950/5 [--btn-icon:theme(colors.zinc.500)] data-[active]:[--btn-icon:theme(colors.zinc.700)] data-[hover]:[--btn-icon:theme(colors.zinc.700)] cursor-pointer" %>
+        </div>
+    <% end %>
+    <div class="mx-auto max-w-4xl">
+      <h3 class="text-2xl/8 font-semibold text-white sm:text-xl/8 dark:text-zinc-950">Cancel my account</h3>
+      
+      <hr role="presentation" class="my-10 mt-6 w-full border-t border-white/10 dark:border-zinc-950/10">
+
+      <section class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+        <div class="space-y-1">
+          <h2 class="text-base/7 font-semibold text-white sm:text-sm/6 dark:text-zinc-950">Unhappy?</h2>
+        </div>
+        <div>
+          <span data-slot="control" class="relative block w-full before:absolute before:inset-px before:rounded-[calc(theme(borderRadius.lg)-1px)] before:bg-zinc-900 before:shadow dark:before:hidden after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:ring-inset after:ring-transparent sm:after:focus-within:ring-2 sm:after:focus-within:ring-blue-500 has-[[data-disabled]]:opacity-50 before:has-[[data-disabled]]:bg-white/5 before:has-[[data-disabled]]:shadow-none before:has-[[data-invalid]]:shadow-red-500/10">
+            <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "relative isolate block ml-auto items-center justify-center gap-x-2 rounded-lg border border-red-600 text-red-600 px-[calc(theme(spacing[3.5])-1px)] py-[calc(theme(spacing[2.5])-1px)] sm:px-[calc(theme(spacing[3])-1px)] sm:py-[calc(theme(spacing[1.5])-1px)] sm:text-sm/6 focus:outline-none hover:text-red-700 hover:border-red-700 cursor-pointer" %>
+          </span>
+        </div>
+      </section>
+
+    </div>
+  </div>
+  <div class="mx-auto max-w-4xl">
+    <%= link_to "Back", :back, class: "text-sm text-indigo-600 hover:text-indigo-700 mt-4 inline-block" %>
+  </div>
+
+</div>

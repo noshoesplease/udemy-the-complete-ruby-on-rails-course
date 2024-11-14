@@ -1,0 +1,27 @@
+<div id="<%= dom_id project %>" class="overflow-hidden bg-white shadow sm:rounded-lg">
+  <div class="px-4 py-6 sm:px-6">
+    <h3 class="text-base/7 font-semibold text-gray-900">Project Information</h3>
+    <p class="mt-1 max-w-2xl text-sm/6 text-gray-500">Project details and attachments.</p>
+  </div>
+  <div class="border-t border-gray-100">
+    <dl class="divide-y divide-gray-100">
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-900">Title</dt>
+        <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"><%= project.title %></dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-900">Details</dt>
+        <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"><%= project.details %></dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-900">Expected Completion Date</dt>
+        <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"><%= project.expected_completion_date %></dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-900">Team</dt>
+        <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0"><%= team_name(project.team_id) %></dd>
+      </div>
+      <%= render 'artifacts/list', artifacts: project.artifacts %>
+    </dl>
+  </div>
+</div>
