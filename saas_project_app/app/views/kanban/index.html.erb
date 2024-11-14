@@ -1,0 +1,15 @@
+<div id="kanban-board" data-controller="kanban" class="flex gap-6 p-6">
+  <% Project.statuses.keys.each do |status| %>
+    <div class="kanban-column flex-1 p-4 bg-gray-100 rounded-lg shadow-md" data-status="<%= status %>">
+      <h2 class="text-xl font-bold mb-4 text-center capitalize"><%= status.humanize %></h2>
+      <div class="kanban-items space-y-4" data-kanban-target="column" data-status="<%= status %>">
+        <% @projects[status] ||= [] %>
+        <% @projects[status].each do |project| %>
+          <div class="kanban-item p-4 bg-white rounded-md shadow cursor-grab" data-id="<%= project.id %>" data-controller="draggable" data-action="dragstart->kanban#dragStart dragend->kanban#dragEnd">
+            <p class="font-medium"><%= project.title %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

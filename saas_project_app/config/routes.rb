@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :artifacts
+  get "kanban/index"
+  get "kanban/update_status"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -23,12 +24,11 @@ Rails.application.routes.draw do
       end
     end
     resources :projects
+
+    resources :kanban, only: [ :index ] do
+      patch "update_status", on: :collection
+    end
   end
 
-  # redirect
-  get "docs/:article", to: redirect("/")
-
-  get "/_health", to: ->(_env) {
-    [ 200, { "Content-Type" => "text/html" }, [ "I'm healthy" ] ]
-  }
+  resources :artifacts
 end

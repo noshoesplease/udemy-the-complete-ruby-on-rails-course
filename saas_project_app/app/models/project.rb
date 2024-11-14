@@ -1,6 +1,13 @@
 class Project < ApplicationRecord
   belongs_to :team
   has_many :artifacts, dependent: :destroy
+  enum status: {
+    pending: 0,
+    in_progress: 1,
+    completed: 2,
+    on_hold: 3,
+    cancelled: 4
+  }
 
   # validates_uniqueness_of :title
   # validate :free_plan_can_only_have_one_project
