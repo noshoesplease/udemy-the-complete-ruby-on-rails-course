@@ -5,7 +5,7 @@
 
   <div id="projects" class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
     <h1 class="font-bold text-4xl my-3">Projects</h1>
-    <% if ! @projects.empty? %>
+    <% if @projects.present? %>
       <ul id="projects" role="list" class="grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-<%= @projects.count > 3  ? 3 : @projects.count %> xl:gap-x-8">
         <% @projects.each do |project| %>
           <%= render 'listing_project', project: project %>

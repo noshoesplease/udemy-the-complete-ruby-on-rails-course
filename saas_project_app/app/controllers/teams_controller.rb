@@ -13,8 +13,8 @@ class TeamsController < ApplicationController
 
   # GET /teams/new
   def new
-    # @team = Team.new
-    @team = Team.find(params[:team_id])
+    @team = Team.new
+    # @team = Team.find(params[:team_id])
     @project = @team.projects.build
   end
 
@@ -23,30 +23,21 @@ class TeamsController < ApplicationController
   end
 
   # POST /teams or /teams.json
-  # def create
-  #   @team = Team.new(team_params)
-
-  #   respond_to do |format|
-  #     if @team.save
-  #       @team.memberships.create!(user: current_user, roles: { admin: true })
-  #       format.html { redirect_to @team, notice: "Team was successfully created." }
-  #       format.json { render :show, status: :created, location: @team }
-  #     else
-  #       format.html { render :new, status: :unprocessable_entity }
-  #       format.json { render json: @team.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
   def create
-    @team = Team.find(params[:team_id])
-    @project = @team.projects.build(project_params)
+    @team = Team.new(team_params)
 
-    if @project.save
-      redirect_to team_project_path(@team, @project), notice: "Project was successfully created."
-    else
-      render :new
+    respond_to do |format|
+      if @team.save
+        @team.memberships.create!(user: current_user, roles: { admin: true })
+        format.html { redirect_to @team, notice: "Team was successfully created." }
+        format.json { render :show, status: :created, location: @team }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @team.errors, status: :unprocessable_entity }
+      end
     end
   end
+
 
   # PATCH/PUT /teams/1 or /teams/1.json
   def update
