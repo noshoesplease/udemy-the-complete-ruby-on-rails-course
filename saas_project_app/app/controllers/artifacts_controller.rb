@@ -13,6 +13,7 @@ class ArtifactsController < ApplicationController
   # GET /artifacts/new
   def new
     @artifact = Artifact.new
+    @artifact.project_id = params[:project_id]
   end
 
   # GET /artifacts/1/edit
@@ -22,6 +23,12 @@ class ArtifactsController < ApplicationController
   # POST /artifacts or /artifacts.json
   def create
     @artifact = Artifact.new(artifact_params)
+    @artifact.project_id = params[:artifact][:project_id]
+
+    @project = Project.find(params[:artifact][:project_id])
+    @artifact.project = @project
+    @project.artifacts << @artifact
+    @project.save
 
     respond_to do |format|
       if @artifact.save
@@ -65,6 +72,6 @@ class ArtifactsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def artifact_params
-      params.require(:artifact).permit(:name, :key, :project_id)
+      params.require(:artifact).permit(:name, :key, :upload, :project_id)
     end
 end
